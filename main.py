@@ -1,6 +1,3 @@
-Import OS
-os.environ["OPENAI_API_KEY"] = st.secrets["OPENAI_API_KEY"]
-
 import streamlit as st
 from openai import OpenAI
 
@@ -8,6 +5,7 @@ from openai import OpenAI
 # OpenAI API 키 설정
 #OPENAI_API_KEY = st.secrets["OPENAI_API_KEY"]
 client = OpenAI(openai_api_key=st.secrets["OPENAI_API_KEY"])
+openai_api_key = st.secrets['openai']["OPENAI_API_KEY"]
 
 def generate_questions(content, category, difficulty, num_questions):
     prompt = f"""- 종류: {category}
