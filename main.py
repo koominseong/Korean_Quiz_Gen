@@ -3,7 +3,7 @@ from openai import OpenAI
 
 
 # OpenAI API 키 설정
-#OPENAI_API_KEY = "YOUR_API_KEY"
+OPENAI_API_KEY = "YOUR_API_KEY"
 client = OpenAI(api_key=OPENAI_API_KEY)
 
 def generate_questions(content, category, difficulty, num_questions):
