@@ -2,9 +2,11 @@ import streamlit as st
 from openai import OpenAI
 
 
-# OpenAI API 키 설정
-#OPENAI_API_KEY = st.secrets["OPENAI_API_KEY"]
-client = OpenAI(openai_api_key=st.secrets["openai"]["OPENAI_API_KEY"])
+# Streamlit secrets에서 API 키 가져오기
+api_key = st.secrets["openai"]["OPENAI_API_KEY"]
+
+# OpenAI 클라이언트 초기화 (올바른 방식)
+client = OpenAI(api_key=api_key)
 
 def generate_questions(content, category, difficulty, num_questions):
     prompt = f"""- 종류: {category}
