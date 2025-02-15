@@ -9,11 +9,7 @@ except KeyError:
     st.error("🚨 OpenAI API 키가 설정되지 않았습니다! `secrets.toml` 파일을 확인하세요.")
     st.stop()  # 앱 실행 중지
 
-client = OpenAI(
-    api_key
-)
-
-# ✅ 최신 방식으로 API 키 설정
+# ✅ 최신 방식으로 API 키 설정 (오류 수정)
 openai.api_key = api_key
 
 # ✅ 문제 생성 함수
@@ -32,8 +28,8 @@ def generate_questions(content, category, difficulty, num_questions):
     """
 
     try:
-        response = client.Chat.Completions.create(
-            model="gpt-4o",  # ✅ 최신 GPT-4o 모델 사용
+        response = openai.ChatCompletion.create(  # ✅ OpenAI 최신 API 방식 적용
+            model="gpt-4o",
             messages=[
                 {"role": "system", "content": "국어 내신 문제 생성기"},
                 {"role": "user", "content": prompt},
