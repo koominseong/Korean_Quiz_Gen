@@ -9,6 +9,10 @@ except KeyError:
     st.error("🚨 OpenAI API 키가 설정되지 않았습니다! `secrets.toml` 파일을 확인하세요.")
     st.stop()  # 앱 실행 중지
 
+client = OpenAI(
+    api_key
+)
+
 # ✅ 최신 방식으로 API 키 설정
 openai.api_key = api_key
 
