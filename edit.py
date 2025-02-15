@@ -28,7 +28,7 @@ def generate_questions(content, category, difficulty, num_questions):
     """
 
     try:
-        response = openai.ChatCompletion.create(  # ✅ OpenAI 최신 API 방식 적용
+        response = openai.Chat.Completions.create(  # ✅ OpenAI 최신 API 방식 적용
             model="gpt-4o",
             messages=[
                 {"role": "system", "content": "국어 내신 문제 생성기"},
